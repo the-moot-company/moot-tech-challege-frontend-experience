@@ -21,7 +21,7 @@ const Landing = () => {
 
   const router = useRouter()
   const meta = {
-    title: 'Moot - Contact Us.',
+    title: 'Moot',
     description:
       'Moot is an all-in-one work hub that makes remote work a multiplayer experience, so teams can collaborate better, faster and cheaper.',
     type: 'website',
