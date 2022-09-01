@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import React, {useState} from 'react'
 import ProgressBar from './components/onboarding/ProgressBar'
 import OnboardingHeader from './components/onboarding/OnboardingHeader'
 // import useImageUpload from '~/hooks/useImageUpload'
@@ -20,24 +20,14 @@ const OnboardingComponentTest = () => {
   const [step, setStep] = useState(0)
 
   const pagesList = [
-    <Intro/>,
-    <ProfileSetup
-      submitProfile={() => null}
-      //   submitProfile={() => submitProfile()}
-      fileUploadAvatar={null}
-      //   fileUploadAvatar={fileUploadAvatar}
-      handleUserNameChange={() => null}
-      //   handleUserNameChange={() => handleUserNameChange(event)}
-      userName={null}
-      //   userName={userName}
-      continue={() => nextStep()}
-    />,
-    <WorkspaceSetup/>,
-    <ThemeSetup/>,
-    <CommandIntro/>,
-    <ConnectCalendar/>,
-    <Subscribe/>,
-    <Outro/>
+    <Intro nextStep={() => nextStep()}/>,
+    <ProfileSetup nextStep={() => nextStep()}/>,
+    <WorkspaceSetup nextStep={() => nextStep()}/>,
+    <ThemeSetup nextStep={() => nextStep()}/>,
+    <CommandIntro nextStep={() => nextStep()}/>,
+    <ConnectCalendar nextStep={() => nextStep()}/>,
+    <Subscribe nextStep={() => nextStep()}/>,
+    <Outro nextStep={() => nextStep()}/>
   ]
 
   const totalSteps = pagesList.length
@@ -45,14 +35,16 @@ const OnboardingComponentTest = () => {
   const nextStep = () => {
     if (step + 1 < totalSteps) {
       setStep(step + 1)
+    } else {
+      // finish onboarding
     }
   }
 
+
   return (
-    <div className="flex justify-center items-center h-screen bg-base-100" data-theme="light">
+    <div className="flex justify-center items-center h-screen bg-base-100 flex-col" data-theme="light">
       <OnboardingHeader/>
       {pagesList[step]}
-      <button onClick={nextStep}>Continue</button>
       <div className="w-full absolute bottom-0">
         <ProgressBar stepActive={step} totalSteps={totalSteps}/>
       </div>
