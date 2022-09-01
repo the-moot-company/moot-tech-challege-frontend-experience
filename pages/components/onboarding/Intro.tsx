@@ -8,7 +8,7 @@ interface IntroProps {
 
 export default function Intro({nextStep}: IntroProps) {
   return (
-    <div className="sm:max-w-xl flex flex-col justify-center items-center">
+    <>
       <Image
         src="/images/logo.png"
         alt="Moot Logo"
@@ -24,7 +24,7 @@ export default function Intro({nextStep}: IntroProps) {
         cheaper.
       </p>
       <ButtonLarge onClick={nextStep} text={"Continue"}/>
-    </div>
+    </>
   )
 }
 

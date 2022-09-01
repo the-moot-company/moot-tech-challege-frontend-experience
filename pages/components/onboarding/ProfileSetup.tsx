@@ -20,7 +20,7 @@ export default function ProfileSetup({nextStep}: ProfileSetupProps) {
   }
 
   return (
-    <div className="sm:max-w-xl flex flex-col justify-center items-center">
+    <>
       <h1 className="text-4xl font-extrabold text-gray-700 tracking-tight sm:text-5xl">
         First things first!
       </h1>
@@ -54,6 +54,6 @@ export default function ProfileSetup({nextStep}: ProfileSetupProps) {
         </form>
       </div>
       <ButtonLarge onClick={handleClick} text={"Continue"}/>
-    </div>
+    </>
   )
 }

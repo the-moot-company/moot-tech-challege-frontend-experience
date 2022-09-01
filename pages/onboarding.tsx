@@ -40,11 +40,12 @@ const OnboardingComponentTest = () => {
     }
   }
 
-
   return (
     <div className="flex justify-center items-center h-screen bg-base-100 flex-col" data-theme="light">
       <OnboardingHeader/>
-      {pagesList[step]}
+      <div className="sm:max-w-xl flex flex-col justify-center items-center">
+        {pagesList[step]}
+      </div>
       <div className="w-full absolute bottom-0">
         <ProgressBar stepActive={step} totalSteps={totalSteps}/>
       </div>
