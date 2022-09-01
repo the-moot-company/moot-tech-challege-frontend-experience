@@ -1,3 +1,9 @@
-export default function WorkspaceSetup() {
- return <p>Workspace seteup</p>
+import ButtonLarge from "../common/ButtonLarge";
+
+interface WorkspaceSetupProps {
+ nextStep: () => void;
+}
+
+export default function WorkspaceSetup({nextStep}: WorkspaceSetupProps) {
+ return <ButtonLarge onClick={nextStep} text="Continue"/>
 }
