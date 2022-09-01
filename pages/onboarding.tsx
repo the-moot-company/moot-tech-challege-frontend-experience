@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import {useState} from 'react'
 import ProgressBar from './components/onboarding/ProgressBar'
 import OnboardingHeader from './components/onboarding/OnboardingHeader'
 // import useImageUpload from '~/hooks/useImageUpload'
@@ -17,103 +17,47 @@ import Outro from './components/onboarding/Outro'
 
 const OnboardingComponentTest = () => {
 
-  const [step, setStep] = useState(1)
+  const [step, setStep] = useState(0)
 
-  const renderOnboarding = () => {
-    switch (step) {
-      case 1:
-        return (
-          <div className="flex justify-center items-center h-screen bg-base-100" data-theme="light">
-            <OnboardingHeader />
-            <Intro continue={() => nextStep()} />
-            <div className="w-full absolute bottom-0">
-              <ProgressBar stepActive={step} totalSteps={8} />
-            </div>
-          </div>
-        )
-      case 2:
-        return (
-          <div className="flex justify-center items-center h-screen bg-base-100">
-            <OnboardingHeader />
-            <ProfileSetup
-              submitProfile={() => null}
-              //   submitProfile={() => submitProfile()}
-              fileUploadAvatar={null}
-              //   fileUploadAvatar={fileUploadAvatar}
-              handleUserNameChange={() => null}
-              //   handleUserNameChange={() => handleUserNameChange(event)}
-              userName={null}
-              //   userName={userName}
-              continue={() => nextStep()}
-            />
-            <div className="w-full absolute bottom-0">
-              <ProgressBar stepActive={step} totalSteps={8} />
-            </div>
-          </div>
-        )
-      case 3:
-        return (
-          <div className="flex justify-center items-center h-screen bg-base-100">
-            <OnboardingHeader />
-            <WorkspaceSetup continue={() => nextStep()} />
-            <div className="w-full absolute bottom-0">
-              <ProgressBar stepActive={step} totalSteps={8} />
-            </div>
-          </div>
-        )
-      case 4:
-        return (
-          <div className="flex justify-center items-center h-screen bg-base-100">
-            <OnboardingHeader />
-            <ThemeSetup continue={() => nextStep()} />
-            <div className="w-full absolute bottom-0">
-              <ProgressBar stepActive={step} totalSteps={8} />
-            </div>
-          </div>
-        )
-      case 5:
-        return (
-          <div className="flex justify-center items-center h-screen bg-base-100">
-            <OnboardingHeader />
-            <CommandIntro continue={() => nextStep()} />
-            <div className="w-full absolute bottom-0">
-              <ProgressBar stepActive={step} totalSteps={8} />
-            </div>
-          </div>
-        )
-      case 6:
-        return (
-          <div className="flex justify-center items-center h-screen bg-base-100">
-            <OnboardingHeader />
-            <ConnectCalendar continue={() => nextStep()} />
-            <div className="w-full absolute bottom-0">
-              <ProgressBar stepActive={step} totalSteps={8} />
-            </div>
-          </div>
-        )
-      case 7:
-        return (
-          <div className="flex justify-center items-center h-screen bg-base-100">
-            <OnboardingHeader />
-            <Subscribe continue={() => nextStep()} />
-            <div className="w-full absolute bottom-0">
-              <ProgressBar stepActive={step} totalSteps={8} />
-            </div>
-          </div>
-        )
-      case 8:
-        return (
-          <div className="flex justify-center items-center h-screen bg-base-100">
-            <OnboardingHeader />
-            <Outro continue={() => nextStep()} />
-            <div className="w-full absolute bottom-0">
-              <ProgressBar stepActive={step} totalSteps={8} />
-            </div>
-          </div>
-        )
+  const pagesList = [
+    <Intro/>,
+    <ProfileSetup
+      submitProfile={() => null}
+      //   submitProfile={() => submitProfile()}
+      fileUploadAvatar={null}
+      //   fileUploadAvatar={fileUploadAvatar}
+      handleUserNameChange={() => null}
+      //   handleUserNameChange={() => handleUserNameChange(event)}
+      userName={null}
+      //   userName={userName}
+      continue={() => nextStep()}
+    />,
+    <WorkspaceSetup/>,
+    <ThemeSetup/>,
+    <CommandIntro/>,
+    <ConnectCalendar/>,
+    <Subscribe/>,
+    <Outro/>
+  ]
+
+  const totalSteps = pagesList.length
+
+  const nextStep = () => {
+    if (step + 1 < totalSteps) {
+      setStep(step + 1)
     }
   }
-  return renderOnboarding()
+
+  return (
+    <div className="flex justify-center items-center h-screen bg-base-100" data-theme="light">
+      <OnboardingHeader/>
+      {pagesList[step]}
+      <button onClick={nextStep}>Continue</button>
+      <div className="w-full absolute bottom-0">
+        <ProgressBar stepActive={step} totalSteps={totalSteps}/>
+      </div>
+    </div>
+  )
 }
 
 export default OnboardingComponentTest
