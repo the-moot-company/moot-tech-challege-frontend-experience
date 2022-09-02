@@ -16,10 +16,10 @@ export default function Intro({nextStep}: IntroProps) {
         height={131}
         className=""
       />
-      <h1 className="text-4xl font-extrabold text-gray-700 tracking-tight sm:text-5xl">
+      <h1 className="text-6xl font-bold leading-relaxed">
         Welcome to Moot
       </h1>
-      <p className="mt-4 text-xl text-gray-500 ">
+      <p className="text-xl opacity-40 text-center mb-5">
         Moot is a work hub that makes remote work multiplayer, so you and your team can collaborate better, faster and
         cheaper.
       </p>

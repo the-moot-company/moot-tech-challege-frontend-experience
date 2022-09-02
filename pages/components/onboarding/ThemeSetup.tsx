@@ -12,19 +12,25 @@ export default function ThemeSetup({nextStep}: ThemeSetupProps) {
   const {setColorTheme} = useContext(ThemeContext)
   return (
     <>
-      <h1 className="text-4xl font-extrabold text-gray-700 tracking-tight sm:text-5xl">
+      <h1 className="text-4xl font-bold leading-relaxed">
         Choose your style
       </h1>
-      <p className="mt-4 text-xl text-gray-500 ">
+      <p className="text-xl opacity-40 mt-2">
         You can change the theme at any time through the dashboard.
       </p>
-      <div className="flex flex-col justify-center items-center">
-        <LightThemeExampleIcon/>
-        <button onClick={() => setColorTheme(ColorThemeOptions.Light)}>Light</button>
-      </div>
-      <div className="flex flex-col justify-center items-center">
-        <DarkThemeExampleIcon/>
-        <button onClick={() => setColorTheme(ColorThemeOptions.Dark)}>Dark</button>
+      <div className="card card-side border border-base-300 bg-base-100 w-full my-10">
+        <button
+          className="flex flex-col justify-center items-center card-body bg-base-200"
+          onClick={() => setColorTheme(ColorThemeOptions.Light)}>
+          <LightThemeExampleIcon/>
+          <p className="mt-3">Light</p>
+        </button>
+        <button
+          className="flex flex-col justify-center items-center card-body"
+          onClick={() => setColorTheme(ColorThemeOptions.Dark)}>
+          <DarkThemeExampleIcon/>
+          <p className="mt-3">Dark</p>
+        </button>
       </div>
       <ButtonLarge onClick={nextStep} text="Continue"/>
     </>
