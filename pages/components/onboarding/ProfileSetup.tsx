@@ -41,7 +41,7 @@ export default function ProfileSetup({nextStep}: ProfileSetupProps) {
             </label>
             <input
               type="text"
-              className="mt-2 block w-96 border border-primary rounded-sm px-5 py-3"
+              className="mt-2 block w-96 border border-primary rounded-sm px-3 py-3"
               placeholder="eg. John Doe, Jenny Doe..."
               onChange={(e) => {
                 setUserName(e.target.value)
