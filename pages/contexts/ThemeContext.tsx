@@ -1,8 +1,8 @@
-import React, {createContext, useState, FunctionComponent} from "react";
+import React, {createContext, useState, FunctionComponent, PropsWithChildren} from "react";
 
-enum ColorThemeOptions {
-  Light,
-  Dark
+export enum ColorThemeOptions {
+  Light = "light",
+  Dark = "dark"
 }
 
 interface ThemeContextProps {
@@ -17,9 +17,7 @@ export const ThemeContext = createContext<ThemeContextProps>(
   }
 );
 
-export const ThemeContextProvider: FunctionComponent = ({children}: {
-  children: React.ReactNode;
-}) => {
+export const ThemeContextProvider: FunctionComponent<PropsWithChildren<any>> = ({children}) => {
   const [colorTheme, setColorTheme] = useState<ColorThemeOptions>(ColorThemeOptions.Light)
 
   return (

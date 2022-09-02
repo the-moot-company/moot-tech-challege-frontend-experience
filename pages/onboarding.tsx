@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import ProgressBar from './components/onboarding/ProgressBar'
 import OnboardingHeader from './components/onboarding/OnboardingHeader'
 // import useImageUpload from '~/hooks/useImageUpload'
@@ -14,8 +14,10 @@ import Subscribe from './components/onboarding/Subscribe'
 //onboarding just for new company admins
 import WorkspaceSetup from './components/onboarding/WorkspaceSetup'
 import Outro from './components/onboarding/Outro'
+import {ThemeContext} from "./contexts/ThemeContext";
 
 const OnboardingComponentTest = () => {
+  const {colorTheme} = useContext(ThemeContext)
 
   const [step, setStep] = useState(0)
 
@@ -41,7 +43,7 @@ const OnboardingComponentTest = () => {
   }
 
   return (
-    <div className="flex justify-center items-center h-screen bg-base-100 flex-col" data-theme="light">
+    <div className="flex justify-center items-center h-screen bg-base-100 flex-col" data-theme={colorTheme}>
       <OnboardingHeader/>
       <div className="sm:max-w-xl flex flex-col justify-center items-center">
         {pagesList[step]}
