@@ -6,5 +6,5 @@ type ButtonLargeProps = {
 }
 
 export default function ButtonLarge({onClick, text}: ButtonLargeProps) {
-  return <button className="btn btn-primary shadow-md btn-md" onClick={onClick}>{text}</button>
+  return <button className="w-full btn btn-primary shadow-md btn-md" onClick={onClick}>{text}</button>
 }
