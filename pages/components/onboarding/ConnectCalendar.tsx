@@ -1,6 +1,6 @@
 import ButtonLarge from "../common/ButtonLarge";
 
-interface ConnectCalendarProps {
+type ConnectCalendarProps = {
   nextStep: () => void;
 }
 

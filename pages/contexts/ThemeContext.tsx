@@ -5,7 +5,7 @@ export enum ColorThemeOptions {
   Dark = "dark"
 }
 
-interface ThemeContextProps {
+type ThemeContextProps = {
   colorTheme: ColorThemeOptions;
   setColorTheme: (theme: ColorThemeOptions) => void;
 }

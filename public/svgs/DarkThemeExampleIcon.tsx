@@ -1,6 +1,5 @@
 import React, {FunctionComponent} from "react";
 
-// Streamline Essential Light / svg / outline / interface-essential / delete / bin-2
 export const DarkThemeExampleIcon: FunctionComponent = () => {
   return (
     <svg width="154" height="97" viewBox="0 0 154 97" fill="none" xmlns="http://www.w3.org/2000/svg">

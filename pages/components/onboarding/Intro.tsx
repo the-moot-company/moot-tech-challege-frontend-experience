@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import ButtonLarge from "../common/ButtonLarge";
 
-interface IntroProps {
+type IntroProps = {
   nextStep: () => void;
 }
 

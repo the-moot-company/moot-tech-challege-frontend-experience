@@ -4,7 +4,7 @@ import {LightThemeExampleIcon} from "../../../public/svgs/LightThemeExampleIcon"
 import {DarkThemeExampleIcon} from "../../../public/svgs/DarkThemeExampleIcon";
 import {ColorThemeOptions, ThemeContext} from "../../contexts/ThemeContext";
 
-interface ThemeSetupProps {
+type ThemeSetupProps = {
   nextStep: () => void;
 }
 

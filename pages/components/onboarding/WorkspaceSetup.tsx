@@ -1,6 +1,6 @@
 import ButtonLarge from "../common/ButtonLarge";
 
-interface WorkspaceSetupProps {
+type WorkspaceSetupProps = {
  nextStep: () => void;
 }
 

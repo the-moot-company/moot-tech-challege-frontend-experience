@@ -1,6 +1,6 @@
 import ButtonLarge from "../common/ButtonLarge";
 
-interface CommandIntroProps {
+type CommandIntroProps = {
   nextStep: () => void;
 }
 

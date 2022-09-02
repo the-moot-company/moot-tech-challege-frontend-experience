@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from "react";
 
-// Streamline Essential Light / svg / outline / interface-essential / delete / bin-2
 export const CameraOutlineIcon: FunctionComponent = () => {
   return (
     <svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">

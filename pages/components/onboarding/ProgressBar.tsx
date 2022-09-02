@@ -1,6 +1,6 @@
 import React from 'react'
 
-interface ProgressBarProps {
+type ProgressBarProps = {
   stepActive: number;
   totalSteps: number;
 }

@@ -1,6 +1,6 @@
 import ButtonLarge from "../common/ButtonLarge";
 
-interface OutroProps {
+type OutroProps = {
   nextStep: () => void;
 }
 

@@ -1,6 +1,6 @@
 import React from "react";
 
-interface ButtonLargeProps {
+type ButtonLargeProps = {
   onClick: () => void;
   text: string;
 }

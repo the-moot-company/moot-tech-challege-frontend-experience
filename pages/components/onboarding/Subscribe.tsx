@@ -1,6 +1,6 @@
 import ButtonLarge from "../common/ButtonLarge";
 
-interface SubscribeProps {
+type SubscribeProps = {
   nextStep: () => void;
 }
 

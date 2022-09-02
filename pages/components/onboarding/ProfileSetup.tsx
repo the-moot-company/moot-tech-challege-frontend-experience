@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {CameraOutlineIcon} from "../../../public/svgs/CameraOutlineIcon";
 import ButtonLarge from "../common/ButtonLarge";
 
-interface ProfileSetupProps {
+type ProfileSetupProps = {
   nextStep: () => void;
 }
 
