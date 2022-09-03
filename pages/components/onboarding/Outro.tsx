@@ -1,9 +1,9 @@
-import ButtonLarge from "../common/ButtonLarge";
+import ButtonPrimary from "../common/ButtonPrimary";
 
 type OutroProps = {
   nextStep: () => void;
 }
 
 export default function Outro({nextStep}: OutroProps) {
-  return <ButtonLarge onClick={nextStep} text="Continue"/>
+  return <ButtonPrimary onClick={nextStep} text="Continue"/>
 }

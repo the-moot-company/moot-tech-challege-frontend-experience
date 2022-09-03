@@ -1,9 +1,9 @@
-import ButtonLarge from "../common/ButtonLarge";
+import ButtonPrimary from "../common/ButtonPrimary";
 
 type ConnectCalendarProps = {
   nextStep: () => void;
 }
 
 export default function ConnectCalendar({nextStep}: ConnectCalendarProps) {
-  return <ButtonLarge onClick={nextStep} text="Continue"/>
+  return <ButtonPrimary onClick={nextStep} text="Continue"/>
 }

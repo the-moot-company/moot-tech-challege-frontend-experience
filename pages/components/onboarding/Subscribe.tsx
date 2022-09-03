@@ -1,9 +1,9 @@
-import ButtonLarge from "../common/ButtonLarge";
+import ButtonPrimary from "../common/ButtonPrimary";
 
 type SubscribeProps = {
   nextStep: () => void;
 }
 
 export default function Subscribe({nextStep}: SubscribeProps) {
-  return <ButtonLarge onClick={nextStep} text="Continue"/>
+  return <ButtonPrimary onClick={nextStep} text="Continue"/>
 }

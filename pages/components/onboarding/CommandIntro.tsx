@@ -1,9 +1,9 @@
-import ButtonLarge from "../common/ButtonLarge";
+import ButtonPrimary from "../common/ButtonPrimary";
 
 type CommandIntroProps = {
   nextStep: () => void;
 }
 
 export default function CommandIntro({nextStep}: CommandIntroProps) {
-  return <ButtonLarge onClick={nextStep} text="Continue"/>
+  return <ButtonPrimary onClick={nextStep} text="Continue"/>
 }

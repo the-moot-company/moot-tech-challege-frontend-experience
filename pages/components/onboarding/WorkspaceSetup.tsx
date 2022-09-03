@@ -1,9 +1,9 @@
-import ButtonLarge from "../common/ButtonLarge";
+import ButtonPrimary from "../common/ButtonPrimary";
 
 type WorkspaceSetupProps = {
  nextStep: () => void;
 }
 
 export default function WorkspaceSetup({nextStep}: WorkspaceSetupProps) {
- return <ButtonLarge onClick={nextStep} text="Continue"/>
+ return <ButtonPrimary onClick={nextStep} text="Continue"/>
 }

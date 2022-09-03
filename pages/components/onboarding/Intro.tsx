@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import ButtonLarge from "../common/ButtonLarge";
+import ButtonPrimary from "../common/ButtonPrimary";
 
 type IntroProps = {
   nextStep: () => void;
@@ -23,7 +23,7 @@ export default function Intro({nextStep}: IntroProps) {
         Moot is a work hub that makes remote work multiplayer, so you and your team can collaborate better, faster and
         cheaper.
       </p>
-      <ButtonLarge onClick={nextStep} text={"Continue"}/>
+      <ButtonPrimary onClick={nextStep} text={"Continue"}/>
     </>
   )
 }

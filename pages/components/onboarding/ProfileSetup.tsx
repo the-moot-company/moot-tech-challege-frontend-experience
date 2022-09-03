@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {CameraOutlineIcon} from "../../../public/svgs/CameraOutlineIcon";
-import ButtonLarge from "../common/ButtonLarge";
+import ButtonPrimary from "../common/ButtonPrimary";
 
 type ProfileSetupProps = {
   nextStep: () => void;
@@ -51,7 +51,7 @@ export default function ProfileSetup({nextStep}: ProfileSetupProps) {
           </div>
         </form>
       </div>
-      <ButtonLarge onClick={handleClick} text={"Continue"}/>
+      <ButtonPrimary onClick={handleClick} text={"Continue"}/>
     </>
   )
 }

@@ -1,4 +1,4 @@
-import ButtonLarge from "../common/ButtonLarge";
+import ButtonPrimary from "../common/ButtonPrimary";
 import React, {useContext} from "react";
 import {LightThemeExampleIcon} from "../../../public/svgs/LightThemeExampleIcon";
 import {DarkThemeExampleIcon} from "../../../public/svgs/DarkThemeExampleIcon";
@@ -32,7 +32,7 @@ export default function ThemeSetup({nextStep}: ThemeSetupProps) {
           <p className="mt-3">Dark</p>
         </button>
       </div>
-      <ButtonLarge onClick={nextStep} text="Continue"/>
+      <ButtonPrimary onClick={nextStep} text="Continue"/>
     </>
   )
 }
