@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, {useContext, useState} from 'react'
 import ProgressBar from './components/onboarding/ProgressBar'
 import OnboardingHeader from './components/onboarding/OnboardingHeader'
 // import useImageUpload from '~/hooks/useImageUpload'
@@ -14,106 +14,45 @@ import Subscribe from './components/onboarding/Subscribe'
 //onboarding just for new company admins
 import WorkspaceSetup from './components/onboarding/WorkspaceSetup'
 import Outro from './components/onboarding/Outro'
+import {ThemeContext} from "./contexts/ThemeContext";
 
 const OnboardingComponentTest = () => {
+  const {colorTheme} = useContext(ThemeContext)
 
-  const [step, setStep] = useState(1)
+  const [step, setStep] = useState(0)
 
-  const renderOnboarding = () => {
-    switch (step) {
-      case 1:
-        return (
-          <div className="flex justify-center items-center h-screen bg-base-100" data-theme="light">
-            <OnboardingHeader />
-            <Intro continue={() => nextStep()} />
-            <div className="w-full absolute bottom-0">
-              <ProgressBar stepActive={step} totalSteps={8} />
-            </div>
-          </div>
-        )
-      case 2:
-        return (
-          <div className="flex justify-center items-center h-screen bg-base-100">
-            <OnboardingHeader />
-            <ProfileSetup
-              submitProfile={() => null}
-              //   submitProfile={() => submitProfile()}
-              fileUploadAvatar={null}
-              //   fileUploadAvatar={fileUploadAvatar}
-              handleUserNameChange={() => null}
-              //   handleUserNameChange={() => handleUserNameChange(event)}
-              userName={null}
-              //   userName={userName}
-              continue={() => nextStep()}
-            />
-            <div className="w-full absolute bottom-0">
-              <ProgressBar stepActive={step} totalSteps={8} />
-            </div>
-          </div>
-        )
-      case 3:
-        return (
-          <div className="flex justify-center items-center h-screen bg-base-100">
-            <OnboardingHeader />
-            <WorkspaceSetup continue={() => nextStep()} />
-            <div className="w-full absolute bottom-0">
-              <ProgressBar stepActive={step} totalSteps={8} />
-            </div>
-          </div>
-        )
-      case 4:
-        return (
-          <div className="flex justify-center items-center h-screen bg-base-100">
-            <OnboardingHeader />
-            <ThemeSetup continue={() => nextStep()} />
-            <div className="w-full absolute bottom-0">
-              <ProgressBar stepActive={step} totalSteps={8} />
-            </div>
-          </div>
-        )
-      case 5:
-        return (
-          <div className="flex justify-center items-center h-screen bg-base-100">
-            <OnboardingHeader />
-            <CommandIntro continue={() => nextStep()} />
-            <div className="w-full absolute bottom-0">
-              <ProgressBar stepActive={step} totalSteps={8} />
-            </div>
-          </div>
-        )
-      case 6:
-        return (
-          <div className="flex justify-center items-center h-screen bg-base-100">
-            <OnboardingHeader />
-            <ConnectCalendar continue={() => nextStep()} />
-            <div className="w-full absolute bottom-0">
-              <ProgressBar stepActive={step} totalSteps={8} />
-            </div>
-          </div>
-        )
-      case 7:
-        return (
-          <div className="flex justify-center items-center h-screen bg-base-100">
-            <OnboardingHeader />
-            <Subscribe continue={() => nextStep()} />
-            <div className="w-full absolute bottom-0">
-              <ProgressBar stepActive={step} totalSteps={8} />
-            </div>
-          </div>
-        )
-      case 8:
-        return (
-          <div className="flex justify-center items-center h-screen bg-base-100">
-            <OnboardingHeader />
-            <Outro continue={() => nextStep()} />
-            <div className="w-full absolute bottom-0">
-              <ProgressBar stepActive={step} totalSteps={8} />
-            </div>
-          </div>
-        )
+  const pagesList = [
+    <Intro nextStep={() => nextStep()}/>,
+    <ProfileSetup nextStep={() => nextStep()}/>,
+    <WorkspaceSetup nextStep={() => nextStep()}/>,
+    <ThemeSetup nextStep={() => nextStep()}/>,
+    <CommandIntro nextStep={() => nextStep()}/>,
+    <ConnectCalendar nextStep={() => nextStep()}/>,
+    <Subscribe nextStep={() => nextStep()}/>,
+    <Outro nextStep={() => nextStep()}/>
+  ]
+
+  const totalSteps = pagesList.length
+
+  const nextStep = () => {
+    if (step + 1 < totalSteps) {
+      setStep(step + 1)
+    } else {
+      // finish onboarding
     }
   }
-  return renderOnboarding()
+
+  return (
+    <div className="flex justify-center items-center h-screen bg-base-100 flex-col" data-theme={colorTheme}>
+      <OnboardingHeader/>
+      <div className="sm:max-w-xl flex flex-col justify-center items-center">
+        {pagesList[step]}
+      </div>
+      <div className="w-full absolute bottom-0">
+        <ProgressBar stepActive={step} totalSteps={totalSteps}/>
+      </div>
+    </div>
+  )
 }
 
 export default OnboardingComponentTest
